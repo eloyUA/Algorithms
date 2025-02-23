@@ -8,6 +8,7 @@
 #include <signal.h>
 
 void errorSorting(char msg[]) {
+    perror(msg);
     exit(EXIT_FAILURE);
 }
 
@@ -57,7 +58,6 @@ void selectionSort(typeE v[], int start, int end) {
             aux = v[i];
             v[i] = v[pmin];
             v[pmin] = aux;
-            //swap(&v[i], &v[pmin]);
         }
     }
 }
