@@ -24,7 +24,6 @@ Input: `[1€ × 10, 5€ × 10, 10€ × 10, 50€ × 10]`
 Steps:
 - Use as many 50€ coins as possible.
 - Then use 10€, etc.
-
 Output: `[50€, 50€, 50€, 50€, 50€, 50€]` → **6 coins**
 
 ---
@@ -52,23 +51,20 @@ Dynamic programming solves problems by storing and reusing previous results, oft
 **Example: Binomial Coefficients**
 
 Recursive formula:
-
 ```
-C(n, m) = 0                     if m > n  
-C(n, m) = 1                     if m == 0 or m == n  
+C(n, m) = 0                         if m > n  
+C(n, m) = 1                         if m == 0 or m == n  
 C(n, m) = C(n−1, m−1) + C(n−1, m)   otherwise
 ```
 
 Matrix:
-
 ```
-      m →  0   1   2   3
-    n ↓
-        +---------------
-    0 |   1
-    1 |   1   1
-    2 |   1   2   1
-    3 |   1   3   3   1
+        0   1   2   3 (m)
+    0   1
+    1   1   1
+    2   1   2   1
+    3   1   3   3   1
+    (n)
 ```
 
 So: **C(3, 2) = 3**
@@ -102,13 +98,13 @@ Actions: Fill, empty, or pour from one jug into the other.
 Solution (Depth-First Search):
 
 ```
-Step 1: (2L, 0L)
-Step 2: (0L, 2L)
-Step 3: (2L, 2L)
-Step 4: (0L, 4L)
-Step 5: (2L, 4L)
-Step 6: (1L, 5L)
-Step 7: (0L, 5L) → Success!
+Step 1: 0L (2L, 0L)
+Step 2: 0L (0L, 2L)
+Step 3: 0L (2L, 2L)
+Step 4: 0L (0L, 4L)
+Step 5: 0L (2L, 4L)
+Step 6: 0L (1L, 5L)
+Step 7: 1L (0L, 5L) → Success!
 ```
 
 ---
@@ -118,7 +114,6 @@ Step 7: (0L, 5L) → Success!
 Sorting algorithms arrange a list of elements in a specific order (usually ascending).
 
 Common algorithms:
-
 - **Bubble Sort** – O(N²)
 - **Insertion Sort** – O(N²)
 - **Selection Sort** – O(N²)
