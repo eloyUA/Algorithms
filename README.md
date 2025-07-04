@@ -1,19 +1,21 @@
 # Algorithms
-[1.Greedy](#gredy)
-[2.Divide and Conquer](#divide-and-conquer)
-[3.Dynamic Programming](#dynamic-programming)
-[4.Searches](#searches)
-[5.Sorting algorithms](#sorting-algorithms)
+1. [Greedy](#gredy)
+2. [Divide and Conquer](#divide-and-conquer)
+3. [Dynamic Programming](#dynamic-programming)
+4. [Searches](#searches)
+5. [Sorting algorithms](#sorting-algorithms)
 
 ## Gredy
 The inputs of the greedy algorithms are a set of candidates and
 the output is a subset that maximize benefits or minimize costs.
-Example:
+###Example:
+    ``` 
     Input = [Candidate-1, Candidate-2, Candidate-3, Candidate-4]
     Output = [Candidate-1, Candidate-3]
+    ```
 To achieve this, greedy algorithms rely on the principle of optimality, which always
 decide the best solution of the problem is choose the best candidate at each step.
-Example:
+###Example:
     We need 300€ using the minimum number of coins (1€, 5€, 10€, 50€).
     Input = [1€ x 10, 5€ x 10, 10€ x 10, 50€ x 10]
     Firts, we need advanced very fast so starts with 50€ and
