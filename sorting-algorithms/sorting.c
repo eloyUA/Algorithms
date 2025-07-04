@@ -22,22 +22,11 @@ void swap(typeE *x, typeE *y) {
 void bubbleSort(typeE v[], int start, int end) {
     typeE aux;
     for (int i = start; i < end; i++) {
-        if (i % 2 == 0) { // Leverage cache memory => This loop go to left --> right and then left <-- right
-            for (int j = i + 1; j <= end; j++) {
-                if (v[i] > v[j]) {
-                    aux = v[i];
-                    v[i] = v[j];
-                    v[j] = aux;
-                }
-            }
-        }
-        else {
-            for (int j = end; j >= i + 1; j--) {
-                if (v[i] > v[j]) {
-                    aux = v[i];
-                    v[i] = v[j];
-                    v[j] = aux;
-                }
+        for (int j = i + 1; j <= end; j++) {
+            if (v[i] > v[j]) {
+                aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
             }
         }
     }
@@ -152,10 +141,12 @@ void quickSort(typeE v[], int start, int end) {
     else {
         // Choose pibot
         int h = (start + end) / 2;
-        if ((v[h] < v[start] && v[h] > v[end]) || (v[h] > v[start] && v[h] < v[end])) {
+        if ((v[h] < v[start] && v[h] > v[end]) || 
+            (v[h] > v[start] && v[h] < v[end])) {
             swap(&v[h], &v[start]);
         }
-        else if ((v[end] < v[start] && v[end] > v[h]) || (v[end] > v[start] && v[end] < v[h])) {
+        else if ((v[end] < v[start] && v[end] > v[h]) ||
+                (v[end] > v[start] && v[end] < v[h])) {
             swap(&v[end], &v[start]);
         }
 
@@ -214,7 +205,10 @@ void heapSort(typeE v[], int start, int end) {
         parentPos = 0;
         childLeftPos = 2*parentPos + 1;
         childRightPos = 2*parentPos + 2;
-        while (childRightPos <= minHeapPos && (minHeap[parentPos] > minHeap[childLeftPos] || minHeap[parentPos] > minHeap[childRightPos])) {
+        while (childRightPos <= minHeapPos &&
+                (minHeap[parentPos] > minHeap[childLeftPos] ||
+                minHeap[parentPos] > minHeap[childRightPos])) {
+                    
             if (minHeap[childLeftPos] > minHeap[childRightPos]) {
                 auxPos = childRightPos;
             }
@@ -231,7 +225,10 @@ void heapSort(typeE v[], int start, int end) {
             childRightPos = 2*parentPos + 2;
         }
 
-        if (childRightPos > minHeapPos && childLeftPos <= minHeapPos && minHeap[parentPos] > minHeap[childLeftPos]) {
+        if (childRightPos > minHeapPos &&
+            childLeftPos <= minHeapPos &&
+            minHeap[parentPos] > minHeap[childLeftPos]) {
+                
             auxE = minHeap[childLeftPos];
             minHeap[childLeftPos] = minHeap[parentPos];
             minHeap[parentPos] = auxE;
